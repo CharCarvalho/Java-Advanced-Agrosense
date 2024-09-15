@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adicionar Novo Vegetal - AgroSense</title>
+    <link rel="stylesheet" href="/styles/style.css">
+</head>
+
+<body>
+
+    <h1>Adicionar Novo Vegetal</h1>
+    
+    <div th:if="${errorMessage}" class="error-message">
+        <p th:text="${errorMessage}"></p>
+    </div>
+
+    <form th:action="@{/images_page/add}" method="post">
+	    <label for="nomeVegetais">Nome do Vegetal:</label>
+	    <input type="text" id="nomeVegetais" name="nomeVegetais" required>
+	    
+	    <label for="statusVegetal">Status do Vegetal:</label>
+	    <select id="statusVegetal" name="statusVegetal" required>
+	        <option value="" disabled selected>Selecione o status</option>
+	        <option value="A">Adicionado</option>
+	        <option value="I">Inativo</option>
+	    </select>
+	    
+	    <label for="linkImagem">Link da Imagem:</label>
+	    <input type="text" id="linkImagem" name="linkImagem" required>
+	    <span id="linkImagemError" class="error-message"></span> 
+	    
+	    <input type="hidden" id="idCliente" name="idCliente" th:value="${idCliente}">
+	    
+	    <button class="linkInicial" type="submit">Adicionar</button>
+	</form>
+	<footer>
+        AgroSense <br>
+        <a href="mailto:grupojarvis@fiap.com.br">grupojarvis@fiap.com.br</a>
+    </footer>
+</body>
+</html>

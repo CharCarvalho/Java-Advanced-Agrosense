@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="_csrf" content="${_csrf.token}"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imagens - AgroSense</title>
+    <link rel="stylesheet" href="/styles/style.css">
+    <link rel="stylesheet" href="/styles/grid.css">
+</head>
+<body>
+    <header>
+        <div class="headerContainer">
+            <a class="active" href="/">Home</a>
+            <a th:href="@{/user_edit(idCliente=${idCliente})}" class="btn">Editar Dados</a>
+        </div>
+    </header>
+
+    <h1>Suas Imagens</h1>
+    <p>Aqui estão todas as imagens que você adicionou:</p>
+
+    <div th:if="${errorMessage}" class="error-message">
+        <p th:text="${errorMessage}"></p>
+    </div>
+
+    <a th:href="@{/images_page/add(idCliente=${idCliente})}" class="btn">Adicionar Novo Vegetal</a>
+
+    <div class="image-grid">
+        <div th:each="vegetal : ${vegetais}" class="image-item" data-id="${vegetal.idVegetais}">
+            <a th:href="@{${vegetal.linkImagem}}" target="_blank">
+                <img th:src="@{${vegetal.linkImagem}}" alt="Imagem do Vegetal"/>
+            </a>
+            <p th:text="${vegetal.nomeVegetais}"></p>
+            <a th:href="@{/images_page/edit/{idVegetais}(idVegetais=${vegetal.idVegetais})}" class="btn_grid_edit">Editar</a>
+            <form th:action="@{/images_page/delete/{idVegetais}(idVegetais=${vegetal.idVegetais})}" method="post" class="form_delete">
+                <input type="hidden" name="_method" value="POST"/>
+                <button type="submit" class="btn_grid_delete">Deletar</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        AgroSense <br>
+        <a href="mailto:grupojarvis@fiap.com.br">grupojarvis@fiap.com.br</a>
+    </footer>
+</body>
+</html>

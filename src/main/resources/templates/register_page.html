@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro - AgroSense</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+
+<body>
+    <div th:insert="~{parts/navigation :: navigation}"></div>
+    <main>
+        <h1>Cadastre-se</h1>
+        <p>Preencha o formulário para criar uma nova conta</p>
+
+        <!-- Exibir mensagem de erro, se houver -->
+        <div th:if="${errorMessage}" style="color: red;">
+            <p th:text="${errorMessage}"></p>
+        </div>
+
+        <form th:action="@{/register_page}" method="post">
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nm_cliente" placeholder="Digite seu nome" th:value="${usuario.nm_cliente}" required>
+
+            <label for="tipo">Tipo de Cliente:</label>
+            <select id="tipo" name="tp_cliente" required>
+                <option value="" th:if="${usuario.tp_cliente == null}" disabled selected>Selecione o tipo</option>
+                <option value="Pessoa Física" th:selected="${usuario.tp_cliente == 'Pessoa Física'}">Pessoa Física</option>
+                <option value="Pessoa Jurídica" th:selected="${usuario.tp_cliente == 'Pessoa Jurídica'}">Pessoa Jurídica</option>
+                <option value="Outro" th:selected="${usuario.tp_cliente == 'Outro'}">Outro</option>
+            </select>
+
+            <label for="email">Email:</label>
+			<input type="email" id="email" name="nmEmail" placeholder="Digite seu email" th:value="${usuario.nmEmail}" required>
+
+
+            <label for="senha">Senha:</label>
+            <input type="password" id="senha" name="nm_senha" placeholder="Digite sua senha" th:value="${usuario.nm_senha}" required>
+
+            <button type="submit">Cadastrar</button>
+        </form>
+
+        <p>Já tem uma conta? <a th:href="@{/login_page}">Faça login aqui</a></p>
+    </main>
+    <footer>
+        AgroSense <br>
+        <a href="mailto:grupojarvis@fiap.com.br">grupojarvis@fiap.com.br</a>
+    </footer>
+</body>
+</html>

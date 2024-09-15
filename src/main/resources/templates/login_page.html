@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - AgroSense</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <a th:href="@{/}">Home</a>
+        </nav>
+        <h1>AgroSense</h1>
+    </header>
+
+    <main>
+        <h2>Login</h2>
+        <p>Acesse sua conta para verificar as fotos enviadas.</p>
+
+        <!-- Formulário de login -->
+        <form th:action="@{/login_page/login}" method="post">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Digite seu email" required>
+
+            <label for="senha">Senha:</label>
+            <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required>
+
+            <button class="linkInicial" type="submit">Entrar</button>
+        </form>
+
+        <!-- Exibir mensagem de erro, se houver -->
+        <p th:if="${param.error}" th:text="${param.error}" style="color:red"></p>
+
+        <p>Não tem uma conta? <a th:href="@{/register_page}">Cadastre-se aqui</a></p>
+    </main>
+
+    <footer>
+        <div th:insert="~{parts/footer :: footer}"></div>
+    </footer>
+</body>
+</html>

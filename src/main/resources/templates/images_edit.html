@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="_csrf" content="${_csrf.token}"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Imagem - AgroSense</title>
+    <link rel="stylesheet" href="/styles/style.css">
+    <link rel="stylesheet" href="/styles/grid.css">
+</head>
+<body>
+    <header>
+        <div class="headerContainer">
+            <a class="active" href="/">Home</a>
+            <a th:href="@{/user_edit(idCliente=${vegetais.idCliente})}" class="btn">Editar Dados</a>
+        </div>
+    </header>
+
+    <h1>Editar Imagem</h1>
+
+    <form th:action="@{/images_page/edit}" method="post" class="edit-form">
+        <input type="hidden" name="idVegetais" th:value="${vegetais.idVegetais}"/>
+        <input type="hidden" name="idCliente" th:value="${vegetais.idCliente}"/>
+
+        <label for="nomeVegetais">Nome:</label>
+        <input type="text" id="nomeVegetais" name="nomeVegetais" th:value="${vegetais.nomeVegetais}" required/>
+
+        <label for="statusVegetal">Status:</label>
+        <select id="statusVegetal" name="statusVegetal" required>
+            <option value="A" th:selected="${vegetais.statusVegetal == 'A'}">Ativo</option>
+            <option value="I" th:selected="${vegetais.statusVegetal == 'I'}">Inativo</option>
+        </select>
+
+        <label for="linkImagem">Link da Imagem:</label>
+        <input type="url" id="linkImagem" name="linkImagem" th:value="${vegetais.linkImagem}" required/>
+
+        <button type="submit" class="btn">Salvar Alterações</button>
+        <a th:href="@{/images_page/${vegetais.idCliente}}" class="btn btn_cancel">Cancelar</a>
+    </form>
+
+    <footer>
+        AgroSense <br>
+        <a href="mailto:grupojarvis@fiap.com.br">grupojarvis@fiap.com.br</a>
+    </footer>
+</body>
+</html>
