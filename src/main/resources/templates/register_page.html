@@ -8,7 +8,6 @@
 </head>
 
 <body>
-    <div th:insert="~{parts/navigation :: navigation}"></div>
     <main>
         <h1>Cadastre-se</h1>
         <p>Preencha o formulário para criar uma nova conta</p>
@@ -37,7 +36,7 @@
             <label for="senha">Senha:</label>
             <input type="password" id="senha" name="nm_senha" placeholder="Digite sua senha" th:value="${usuario.nm_senha}" required>
 
-            <button type="submit">Cadastrar</button>
+            <button class="linkInicial" type="submit">Cadastrar</button>
         </form>
 
         <p>Já tem uma conta? <a th:href="@{/login_page}">Faça login aqui</a></p>
