@@ -23,6 +23,7 @@ jobs:
         with:
           name: java-advanced-agrosense
           path: ${{ github.workspace }}/target/*.jar
+
   deploy:
     runs-on: ubuntu-latest
     needs: build
@@ -31,9 +32,13 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: java-advanced-agrosense
+
+      - name: List files
+        run: ls -la java-advanced-agrosense/
+
       - name: Deploy to Azure App Services
         uses: azure/webapps-deploy@v3
         with:
           app-name: agrosense-app
           publish-profile: ${{ secrets.azureWebAppPublishProfile }}
-          package: /*.jar
+          package: java-advanced-agrosense/*.jar
