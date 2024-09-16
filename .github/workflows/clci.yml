@@ -36,4 +36,4 @@ jobs:
         with:
           app-name: agrosense-app
           publish-profile: ${{ secrets.azureWebAppPublishProfile }}
-          package: '*.jar'
+          package: java-advanced-agrosense/*.jar
