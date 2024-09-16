@@ -18,14 +18,11 @@ jobs:
           java-version: '21'
       - name: Build Project
         run: mvn clean install -DskipTests
-      - name: List files in target directory
-        run: ls -la target/
       - name: Upload Artifact for Deployment job
         uses: actions/upload-artifact@v3
         with:
           name: java-advanced-agrosense
-          path: target/*.jar
-
+          path: ${{ github.workspace }}/target/*.jar
   deploy:
     runs-on: ubuntu-latest
     needs: build
@@ -34,11 +31,9 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: java-advanced-agrosense
-      - name: List files after download
-        run: ls -la java-advanced-agrosense/
       - name: Deploy to Azure App Services
         uses: azure/webapps-deploy@v3
         with:
           app-name: agrosense-app
           publish-profile: ${{ secrets.azureWebAppPublishProfile }}
-          package: java-advanced-agrosense/*.jar
+          package: /*.jar
