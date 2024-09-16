@@ -1,2 +1,2 @@
-# SPRINT - Java-Advanced-Agrosense
+# Java-Advanced-Agrosense
 
