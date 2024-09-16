@@ -76,7 +76,7 @@ O projeto está organizado da seguinte forma:
 
 ### Imagens
 
-- **URL:** `/images_page`
+- **URL:** `/images_page/{idCliente}`
 - **Descrição:** Exibe a lista de imagens de vegetais adicionadas pelo usuário.
 
 ### Adicionar Novo Vegetal
