@@ -1,12 +1,12 @@
 <div align="center" id="top"> 
-  <img src="https://upload.wikimedia.org/wikipedia/commons/6/65/RIHAPPY_Logo.svg" alt="AgroSense" width="200" />
+  <img src="https://eatinnovation.com/wp-content/uploads/2024/03/IA-na-industria-de-alimentos.jpg" alt="AgroSense" width="200" />
   <h1 align="center">AgroSense</h1>
 </div>
 
 <p align="center">
-  <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/SeuUsuario/AgroSense?color=56BEB8">
-  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/SeuUsuario/AgroSense?color=56BEB8">
-  <img alt="Repository size" src="https://img.shields.io/github/repo-size/SeuUsuario/AgroSense?color=56BEB8">
+  <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/CharCarvalho/Java-Advanced-Agrosense?color=56BEB8">
+  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/CharCarvalho/Java-Advanced-Agrosense?color=56BEB8">
+  <img alt="Repository size" src="https://img.shields.io/github/repo-size/CharCarvalho/Java-Advanced-Agrosense?color=56BEB8">
 </p>
 
 <p align="center">
