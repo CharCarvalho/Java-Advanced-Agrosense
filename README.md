@@ -34,7 +34,6 @@ As seguintes ferramentas foram utilizadas neste projeto:
 - [Java Spring Boot](https://spring.io/projects/spring-boot)
 - [Thymeleaf](https://www.thymeleaf.org/)
 - [Eclipse IDE](https://www.eclipse.org/)
-- [Outras ferramentas que você usou, se houver]
 
 ## ✔️ Requisitos
 
