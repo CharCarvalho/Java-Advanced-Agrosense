@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Controller
@@ -42,12 +43,19 @@ public class VegetaisController {
             return "images_add";
         }
 
+        // Criação de um novo vegetal
         VegetaisModel newVegetal = new VegetaisModel();
         newVegetal.setNomeVegetais(nomeVegetais);
         newVegetal.setStatusVegetal(statusVegetal);
         newVegetal.setLinkImagem(linkImagem);
         newVegetal.setIdCliente(idCliente);
+
+        // Definir a data de imagem automaticamente como a data atual
+        newVegetal.setDataImagem(LocalDate.now());
+
+        // Salvar o vegetal no banco de dados
         vegetaisService.createVegetais(newVegetal);
+
         return "redirect:/images_page/" + idCliente;
     }
 
