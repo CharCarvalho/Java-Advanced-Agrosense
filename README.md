@@ -121,8 +121,12 @@ O projeto está organizado da seguinte forma:
 
 ![Login](src/main/resources/static/assets/login_page.png)
 
+### Register
+
+![Register](src/main/resources/static/assets/register_page.png)
+
 ## 🚀 Deploy
 
 O projeto pode ser acessado através do link abaixo (se disponível):
 
-- **[AgroSense Online](http://seu-link-aqui)**
+- **[AgroSense Online](https://agrosense-app.azurewebsites.net/)**
