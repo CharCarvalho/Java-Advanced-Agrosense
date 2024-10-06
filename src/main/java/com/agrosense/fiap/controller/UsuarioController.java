@@ -46,7 +46,6 @@ import com.agrosense.fiap.service.VegetaisService;
 
 	    @PostMapping("/user_delete/{id_cliente}")
 	    public String deleteUsuario(@PathVariable Long id_cliente) {
-	    	System.out.println("Id_cliente" + id_cliente);
 	    	vegetaisService.deleteAllVegetaisByClienteId(id_cliente);
 	        usuarioService.deleteUsuario(id_cliente);
 	        return "redirect:/login_page";
