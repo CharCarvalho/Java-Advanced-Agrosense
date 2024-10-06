@@ -35,7 +35,7 @@
         <input type="url" id="linkImagem" name="linkImagem" th:value="${vegetais.linkImagem}" required/>
 
         <button type="submit" class="btn">Salvar Alterações</button>
-        <a th:href="@{/images_page/${vegetais.idCliente}}" class="btn btn_cancel">Cancelar</a>
+        <a th:href="@{/images_page/{idCliente}(idCliente=${vegetais.idCliente})}" class="btn btn_cancel">Cancelar</a>
     </form>
 
     <footer>
