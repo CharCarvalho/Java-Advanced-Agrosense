@@ -40,9 +40,15 @@
         
         <label for="nm_senha">Senha:</label>
         <input type="password" id="nm_senha" name="nm_senha" th:value="${usuario.nm_senha}" required>
-
+		
         <button type="submit" class="btn">Atualizar</button>
     </form>
+    <form th:action="@{/user_delete/{id_cliente}(id_cliente=${usuario.id_cliente})}" method="post" class="form_delete">
+	    <input type="hidden" name="_method" value="POST"/>
+	    <button type="submit" class="btn_deletar" onclick="return confirm('Tem certeza que deseja deletar sua conta?');">Deletar Conta</button>
+	</form>
+
+	
 
     <footer>
         AgroSense <br>

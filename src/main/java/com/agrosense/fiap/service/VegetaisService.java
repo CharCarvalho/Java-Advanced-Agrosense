@@ -73,4 +73,13 @@ public class VegetaisService {
             return true;
         }).orElse(false);
     }
+    public boolean deleteAllVegetaisByClienteId(Long idCliente) {
+        List<VegetaisModel> vegetaisList = vegetaisRepository.findByIdCliente(idCliente);
+        if (!vegetaisList.isEmpty()) {
+            vegetaisRepository.deleteAll(vegetaisList);
+            return true;
+        }
+        return false;
+    }
+
 }
