@@ -36,8 +36,8 @@ import com.agrosense.fiap.service.VegetaisService;
 	    @PostMapping("/user_edit")
 	    public String handleUserEdit(@ModelAttribute UsuarioModel usuario, Model model) {
 	        try {
-	            usuarioService.updateUsuario(usuario.getId_cliente(), usuario);
-	            return "redirect:/images_page/" + usuario.getId_cliente();
+	            usuarioService.updateUsuario(usuario.getId(), usuario);
+	            return "redirect:/images_page/" + usuario.getId();
 	        } catch (Exception e) {
 	            model.addAttribute("errorMessage", e.getMessage());
 	            return "user_edit";

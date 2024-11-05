@@ -15,13 +15,15 @@ public class VegetaisController {
     @Autowired
     private VegetaisService vegetaisService;
 
-    @GetMapping("/images_page/{idCliente}")
-    public String getAllVegetais(@PathVariable Long idCliente, Model model) {
-        List<VegetaisModel> vegetais = vegetaisService.getVegetaisByClienteId(idCliente);
+    @GetMapping("/images_page/{id}")
+    public String getAllVegetais(@PathVariable Long id, Model model) {
+        System.out.println("Acessando a página de imagens para o idCliente: " + id);
+        List<VegetaisModel> vegetais = vegetaisService.getVegetaisByClienteId(id);
         model.addAttribute("vegetais", vegetais);
-        model.addAttribute("idCliente", idCliente);
+        model.addAttribute("id", id);
         return "images_page";
     }
+
 
     @GetMapping("/images_page/add")
     public String addVegetaisForm(@RequestParam(required = false) Long idCliente, Model model) {

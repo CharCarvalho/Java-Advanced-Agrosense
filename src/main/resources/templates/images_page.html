@@ -12,7 +12,7 @@
     <header>
         <div class="headerContainer">
             <a class="active" href="/">Home</a>
-            <a th:href="@{/user_edit(idCliente=${idCliente})}" class="btn">Editar Dados</a>
+            <a th:href="@{/user_edit(id=${id})}" class="btn">Editar Dados</a>
         </div>
     </header>
 
@@ -23,7 +23,7 @@
         <p th:text="${errorMessage}"></p>
     </div>
 
-    <a th:href="@{/images_page/add(idCliente=${idCliente})}" class="btn">Adicionar Novo Vegetal</a>
+    <a th:href="@{/images_page/add(id=${id})}" class="btn">Adicionar Novo Vegetal</a>
 
     <div class="image-grid">
         <div th:each="vegetal : ${vegetais}" class="image-item" data-id="${vegetal.idVegetais}">
