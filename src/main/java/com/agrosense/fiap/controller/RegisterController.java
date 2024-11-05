@@ -2,6 +2,7 @@ package com.agrosense.fiap.controller;
 
 import java.time.LocalDate;
 
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -33,14 +34,14 @@ public class RegisterController {
     public String handleRegister(@ModelAttribute UsuarioModel usuario, Model model) {
     	System.out.println("Usuario Email "+ usuario.getNmEmail());
         try {
-            // Defina a data de cadastro automaticamente
+        	var bCryptEncoder = new BCryptPasswordEncoder();
             usuario.setDt_cadastro(LocalDate.now());
+            usuario.setNm_senha(bCryptEncoder.encode(usuario.getNm_senha()));
+            usuario.setRoles("USER");
             usuarioService.createUsuario(usuario);            
             return "redirect:/login_page";
         } catch (Exception e) {
-            // Exibe a mensagem de erro
             model.addAttribute("errorMessage", e.getMessage());
-            // Mantém os dados preenchidos
             model.addAttribute("usuario", usuario);
             return "register_page";
         }

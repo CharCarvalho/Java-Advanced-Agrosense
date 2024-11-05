@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Admin Dashboard</h1>
+        <div class="row">
+            <div class="col-md-6">
+                <h4>Número de Usuários: <span th:text="${userCount}"></span></h4>
+            </div>
+            <div class="col-md-6">
+                <h4>Número de Imagens: <span th:text="${vegetaisCount}"></span></h4>
+            </div>
+        </div>
+        
+        <h2>Lista de Usuários e seus Papéis</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>User ID</th>
+                    <th>Role</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="userRole : ${userRoles}">
+                    <td th:text="${userRole.id}"></td>
+                    <td th:text="${userRole.user.id}"></td> <!-- Acessando o ID do usuário -->
+                    <td th:text="${userRole.role.roleName}"></td> <!-- Acessando o nome do papel -->
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
